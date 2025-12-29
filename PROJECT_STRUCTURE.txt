@@ -1,0 +1,61 @@
+Graph RAG Project Structure
+============================
+
+graph-rag/
+│
+├── Configuration Files
+│   ├── .env                      # Environment variables (configured)
+│   ├── .env.example              # Environment template
+│   ├── .gitignore                # Git ignore rules
+│   ├── pyproject.toml            # Project configuration
+│   └── requirements.txt          # Python dependencies
+│
+├── Main Application
+│   ├── main.py                   # FastAPI application entry point
+│   ├── start.sh                  # Startup script (executable)
+│   └── test_api.py               # API test suite
+│
+├── Documentation
+│   ├── README.md                 # Full project documentation
+│   ├── SETUP.md                  # Quick setup guide
+│   ├── API_GUIDE.md              # Detailed API reference
+│   ├── ARCHITECTURE.md           # System architecture
+│   ├── PROJECT_SUMMARY.md        # What was built
+│   ├── QUICK_REFERENCE.md        # Quick command reference
+│   └── PROJECT_STRUCTURE.txt     # This file
+│
+├── Source Code (src/)
+│   ├── Core Modules
+│   │   ├── config.py             # Configuration management
+│   │   ├── database.py           # Database setup
+│   │   ├── models.py             # SQLAlchemy models
+│   │   ├── schemas.py            # Pydantic schemas
+│   │   ├── auth.py               # Authentication logic
+│   │   └── embeddings.py         # Embedding models
+│   │
+│   ├── API Endpoints (api/)
+│   │   ├── auth.py               # Authentication endpoints
+│   │   ├── documents.py          # Document management
+│   │   ├── query.py              # RAG query endpoints
+│   │   └── graph.py              # Knowledge graph endpoints
+│   │
+│   ├── Business Logic (services/)
+│   │   ├── document_processor.py # Document processing pipeline
+│   │   ├── graph_rag.py          # Graph RAG service
+│   │   └── rag_service.py        # RAG query service
+│   │
+│   └── Vector Store (vectorstore/)
+│       └── qdrant.py             # Qdrant integration
+│
+└── Storage
+    ├── uploads/                  # Per-user document storage
+    └── graph_rag.db              # SQLite database
+
+API Endpoints Summary:
+  Auth:      /api/auth/register, /api/auth/login
+  Documents: /api/documents/upload, /api/documents/
+  Query:     /api/query/
+  Graph:     /api/graph/user
+
+Start Server: ./start.sh or python main.py
+Documentation: http://localhost:8000/docs
